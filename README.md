@@ -1,7 +1,7 @@
 # Café Tlalli — Sitio web responsivo, semántico y accesible
 
-**Laboratorio de Programación Web · Actividad 2**
-Unidad temática 2: herramientas para el desarrollo de páginas en Internet
+**Laboratorio de Programación Web · Actividad 2**<br>
+Unidad temática 2: herramientas para el desarrollo de páginas en Internet<br>
 Facultad de Ingeniería Mecánica y Eléctrica (FIME) — UANL
 
 | | |
@@ -79,7 +79,7 @@ cafe-tlalli/
 - **Flexbox**: encabezado y navegación, grupos de botones, sección de historia, tarjetas de producto (para alinear el precio al fondo) y opciones del formulario.
 - **CSS Grid**: hero, rejillas de tarjetas con `repeat(auto-fit, minmax(...))`, rejilla de contacto y pie de página.
 - **No se usan tablas para maquetar**; la única tabla es el horario, que es información tabular.
-- Tipografía fluida con `clamp()` y contenedor con `min()` para evitar desbordes horizontales.
+- Tipografía y espaciados fluidos con `clamp()`, y `min()` en rejillas e imágenes para evitar desbordes horizontales.
 
 | Breakpoint | Ancho | Cambios principales |
 |---|---|---|
@@ -113,8 +113,7 @@ Se comprobó que en 390 px de ancho no existe desplazamiento horizontal en ningu
 
 ### 6.4 Validación y calidad del código (15 %)
 
-Ver la sección [8. Resultados de validación](#8-resultados-de-validación).
-Además: código indentado y comentado, una sola hoja de estilos organizada por secciones, variables CSS para colores y medidas, nombres de clases descriptivos y sin estilos en línea.
+Ver la sección [8. Resultados de validación](#8-resultados-de-validación). Además: código indentado y comentado, una sola hoja de estilos organizada por secciones, variables CSS para colores y medidas, nombres de clases descriptivos y sin estilos en línea.
 
 ### 6.5 Publicación, repositorio y documentación (20 %)
 
@@ -138,7 +137,39 @@ Sitio desplegado con **GitHub Pages** desde la rama `main` (carpeta raíz). Liga
 
 ## 8. Resultados de validación
 
-VALIDACION_PENDIENTE
+Validación realizada sobre el sitio **ya publicado** en GitHub Pages (11 de septiembre de 2026). Cada enlace de la columna «Revalidar» vuelve a ejecutar el validador oficial del W3C con la versión actual del sitio.
+
+### 8.1 HTML — W3C Nu Html Checker (validator.w3.org)
+
+| Página | Errores | Advertencias | Revalidar |
+|---|:---:|:---:|---|
+| `index.html` | 0 | 0 | [Ver resultado](https://validator.w3.org/nu/?doc=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2F) |
+| `menu.html` | 0 | 0 | [Ver resultado](https://validator.w3.org/nu/?doc=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2Fmenu.html) |
+| `contacto.html` | 0 | 0 | [Ver resultado](https://validator.w3.org/nu/?doc=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2Fcontacto.html) |
+| `gracias.html` | 0 | 0 | [Ver resultado](https://validator.w3.org/nu/?doc=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2Fgracias.html) |
+| `404.html` | 0 | 0 | [Ver resultado](https://validator.w3.org/nu/?doc=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2F404.html) |
+
+Resultado: **«Document checking completed. No errors or warnings to show.»** en las cinco páginas.
+
+### 8.2 CSS — W3C CSS Validation Service (jigsaw.w3.org), perfil CSS nivel 3 + SVG
+
+| Archivo | Errores | Advertencias | Revalidar |
+|---|:---:|:---:|---|
+| `css/styles.css` | 0 | 6 (informativas) | [Ver resultado](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fid0cool.github.io%2Fcafe-tlalli%2Fcss%2Fstyles.css&profile=css3svg&usermedium=all&warning=1&lang=es) |
+
+Resultado: **«¡Enhorabuena! No error encontrado. ¡Este documento es CSS versión 3 + SVG válido!»**
+
+### 8.3 Correcciones realizadas a partir de la validación
+
+La primera validación del CSS dio **0 errores y 12 advertencias**. Se corrigieron las 6 que tenían solución:
+
+| Advertencia del validador | Corrección aplicada |
+|---|---|
+| `The property clip is deprecated` / separador inválido en `rect()` | Se reemplazó `clip: rect(0 0 0 0)` por `clip-path: inset(50%)` en la clase `.visually-hidden`. |
+| `dynamic values cannot be checked as an unitless number` | El contenedor dejó de usar `min(100% - 2 * var(--espacio), …)`; ahora usa `max-width` + `padding-inline`. |
+| `Colores iguales para background-color y border-color` (3 casos) | Los botones usan un borde transparente por defecto y solo el botón secundario define color de borde. |
+
+Las **6 advertencias restantes** dicen *«Due to their dynamic nature, CSS variables are currently not statically checked»*: solo informan que el validador no puede revisar los valores de las variables CSS (`var(--…)`). No son errores y no afectan la validez del documento.
 
 ## 9. Cómo ver el proyecto localmente
 
