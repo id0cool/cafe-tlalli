@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Café Tlalli</title>
+  <meta name="description" content="Contacta a Café Tlalli para pedidos, cotizaciones de eventos y reservas de mesa. Dirección, teléfono y formulario.">
+  <meta name="theme-color" content="#4a2c1d">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Café Tlalli</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú y servicios</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-header">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>Escríbenos para pedidos, cotizaciones de eventos o reservas de mesa. Respondemos en menos de 24 horas hábiles.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container contact-grid">
+        <section aria-labelledby="titulo-form">
+          <h2 id="titulo-form">Envíanos un mensaje</h2>
+          <form class="form" action="gracias.html" method="get">
+            <p class="form-note">Los campos marcados con <span class="req" aria-hidden="true">*</span> son obligatorios.</p>
+
+            <div class="field">
+              <label for="nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="correo">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="correo-ayuda">
+              <span id="correo-ayuda" class="hint">Ejemplo: nombre@uanl.edu.mx</span>
+            </div>
+
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" pattern="[0-9 ]{10,14}" aria-describedby="telefono-ayuda">
+              <span id="telefono-ayuda" class="hint">Opcional. 10 dígitos, por ejemplo: 81 1234 5678</span>
+            </div>
+
+            <div class="field">
+              <label for="motivo">Motivo del mensaje <span class="req" aria-hidden="true">*</span></label>
+              <select id="motivo" name="motivo" required>
+                <option value="">Selecciona una opción</option>
+                <option value="pedido">Pedido para llevar</option>
+                <option value="evento">Cotización para evento</option>
+                <option value="mesa">Reserva de mesa de estudio</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <fieldset class="fieldset">
+              <legend>¿Cómo prefieres que te contactemos?</legend>
+              <div class="choice-group">
+                <div class="choice">
+                  <input type="radio" id="pref-correo" name="preferencia" value="correo" checked>
+                  <label for="pref-correo">Por correo</label>
+                </div>
+                <div class="choice">
+                  <input type="radio" id="pref-telefono" name="preferencia" value="telefono">
+                  <label for="pref-telefono">Por teléfono</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="mensaje">Mensaje <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+
+            <div class="choice">
+              <input type="checkbox" id="aviso" name="aviso" required>
+              <label for="aviso">Acepto que usen mis datos solo para responder este mensaje. <span class="req" aria-hidden="true">*</span></label>
+            </div>
+
+            <button class="btn btn--primario" type="submit">Enviar mensaje</button>
+          </form>
+        </section>
+
+        <section class="card info-card" aria-labelledby="titulo-visita">
+          <h2 id="titulo-visita">Visítanos</h2>
+          <address>
+            <ul class="info-list">
+              <li><strong>Dirección</strong> Av. Universidad s/n, Ciudad Universitaria, San Nicolás de los Garza, N. L. (ubicación de ejemplo)</li>
+              <li><strong>Teléfono</strong> <a href="tel:+528100000000">81 0000 0000</a></li>
+              <li><strong>Correo</strong> <a href="mailto:hola@cafetlalli.example">hola@cafetlalli.example</a></li>
+            </ul>
+          </address>
+          <iframe class="map"
+                  title="Mapa de OpenStreetMap con la ubicación de Café Tlalli en Ciudad Universitaria"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-100.3180%2C25.7200%2C-100.3000%2C25.7310&amp;layer=mapnik&amp;marker=25.7255%2C-100.3090"
+                  loading="lazy"></iframe>
+          <p><a href="https://www.openstreetmap.org/?mlat=25.7255&amp;mlon=-100.3090#map=16/25.7255/-100.3090">Ver mapa en tamaño completo</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <section aria-labelledby="footer-marca">
+          <h2 id="footer-marca" class="footer-title">Café Tlalli</h2>
+          <p>Café de especialidad y pan artesanal a unos pasos de Ciudad Universitaria. Tlalli significa «tierra» en náhuatl.</p>
+        </section>
+        <nav aria-label="Pie de página">
+          <h2 class="footer-title">Secciones</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú y servicios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="footer-horario">
+          <h2 id="footer-horario" class="footer-title">Horario</h2>
+          <p>Lunes a viernes: 7:00 a 21:00<br>Sábado: 8:00 a 15:00<br>Domingo: cerrado</p>
+        </section>
+      </div>
+      <p class="credits">
+        © 2026 Café Tlalli — Negocio ficticio creado como proyecto académico para el Laboratorio de Programación Web, FIME-UANL.
+        Elaborado por Angel Bernardo Rodríguez Parlanch (1951732).
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

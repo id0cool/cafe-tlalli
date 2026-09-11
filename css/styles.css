@@ -1,0 +1,731 @@
+/* ==========================================================================
+   Café Tlalli — Hoja de estilos principal
+   Enfoque: mobile-first. Layout con Flexbox y CSS Grid.
+   Breakpoints: 40em (≈640 px, tableta) y 64em (≈1024 px, escritorio).
+   ========================================================================== */
+
+/* ---------- 1. Variables de diseño ---------- */
+:root {
+  --color-fondo: #fbf6ef;
+  --color-superficie: #ffffff;
+  --color-crema: #f1e6d6;
+  --color-texto: #2b1a12;
+  --color-texto-suave: #5c4436;
+  --color-cafe: #4a2c1d;
+  --color-acento: #9c3f1a;
+  --color-acento-hover: #7e3113;
+  --color-verde: #365540;
+  --color-borde: #d9c7b1;
+  --color-foco: #1f5fbf;
+
+  --fuente-titulos: Georgia, "Times New Roman", Times, serif;
+  --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radio: 0.75rem;
+  --sombra: 0 0.25rem 1rem rgb(43 26 18 / 0.08);
+  --ancho-max: 72rem;
+  --espacio: clamp(1rem, 4vw, 2rem);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  color: var(--color-cafe);
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--color-acento);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-acento-hover);
+}
+
+/* Foco visible y consistente para navegación con teclado */
+:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+/* ---------- 3. Utilidades ---------- */
+.container {
+  width: min(100% - 2 * var(--espacio), var(--ancho-max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-cafe);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0 0 var(--radio) var(--radio);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #fff;
+}
+
+.section {
+  padding-block: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.section--crema {
+  background-color: var(--color-crema);
+}
+
+.section-intro {
+  max-width: 40rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-verde);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- 4. Botones ---------- */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem; /* objetivo táctil de 44 px */
+  padding: 0.65rem 1.4rem;
+  border: 2px solid var(--color-acento);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn--primario {
+  background-color: var(--color-acento);
+  color: #fff;
+}
+
+.btn--primario:hover {
+  background-color: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+  color: #fff;
+}
+
+.btn--secundario {
+  background-color: transparent;
+  color: var(--color-acento);
+}
+
+.btn--secundario:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+}
+
+/* ---------- 5. Encabezado y navegación (Flexbox) ---------- */
+.site-header {
+  background-color: var(--color-cafe);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.75rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.brand:hover {
+  color: var(--color-crema);
+}
+
+.brand img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background-color: rgb(255 255 255 / 0.12);
+  color: #fff;
+}
+
+.nav-list a[aria-current="page"] {
+  background-color: var(--color-fondo);
+  color: var(--color-cafe);
+}
+
+/* ---------- 6. Hero (Grid) ---------- */
+.hero {
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  color: var(--color-texto-suave);
+  max-width: 34rem;
+}
+
+.hero-img {
+  justify-self: center;
+  width: min(100%, 28rem);
+}
+
+/* ---------- 7. Tarjetas de características (Grid auto-fit) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-verde);
+}
+
+/* ---------- 8. Historia (Flexbox) ---------- */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.split-media {
+  width: min(100%, 26rem);
+  flex-shrink: 0;
+}
+
+.split-media img {
+  border-radius: var(--radio);
+}
+
+/* ---------- 9. Tabla de horario ---------- */
+.table-wrap {
+  overflow-x: auto;
+  max-width: 32rem;
+}
+
+.horario {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-superficie);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.horario caption {
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  color: var(--color-texto-suave);
+}
+
+.horario th,
+.horario td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.horario thead th {
+  background-color: var(--color-verde);
+  color: #fff;
+}
+
+.horario tbody tr:last-child th,
+.horario tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- 10. Banda de llamada a la acción ---------- */
+.cta-band {
+  background-color: var(--color-verde);
+  color: #fff;
+}
+
+.cta-band h2 {
+  color: #fff;
+}
+
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.cta-inner p {
+  margin: 0;
+}
+
+.cta-band .btn--primario {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--color-verde);
+}
+
+.cta-band .btn--primario:hover {
+  background-color: var(--color-crema);
+  border-color: var(--color-crema);
+  color: var(--color-verde);
+}
+
+/* ---------- 11. Encabezado de página interior ---------- */
+.page-header {
+  background-color: var(--color-crema);
+  padding-block: clamp(2rem, 6vw, 3.5rem);
+}
+
+.page-header p {
+  color: var(--color-texto-suave);
+  max-width: 40rem;
+  margin: 0;
+}
+
+/* Índice "En esta página" */
+.subnav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subnav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--color-acento);
+  border-radius: 999px;
+  background-color: var(--color-superficie);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.subnav a:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+}
+
+/* ---------- 12. Productos (Grid auto-fill) ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.5rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--color-crema);
+}
+
+.product-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.product-body p {
+  color: var(--color-texto-suave);
+}
+
+.price {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-acento);
+}
+
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-color: #e3ece5;
+  color: var(--color-verde);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* ---------- 13. Contacto: formulario + información (Grid) ---------- */
+.contact-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-note {
+  color: var(--color-texto-suave);
+  margin: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label,
+.fieldset legend {
+  font-weight: 700;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.req {
+  color: var(--color-acento);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #8a735f;
+  border-radius: 0.5rem;
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--color-foco);
+}
+
+.fieldset {
+  margin: 0;
+  padding: 1rem;
+  border: 2px solid var(--color-borde);
+  border-radius: 0.5rem;
+}
+
+.fieldset legend {
+  padding-inline: 0.25rem;
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+}
+
+.choice input {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-acento);
+}
+
+.form .btn {
+  justify-self: start;
+}
+
+.info-card address {
+  font-style: normal;
+}
+
+.info-list {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.info-list strong {
+  display: block;
+  color: var(--color-cafe);
+}
+
+.map {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+/* ---------- 14. Pie de página ---------- */
+.site-footer {
+  background-color: var(--color-cafe);
+  color: #f3e9dc;
+  padding-block: 2.5rem 1.5rem;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid p,
+.footer-grid ul {
+  margin: 0;
+}
+
+.footer-links {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.credits {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(255 255 255 / 0.2);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Breakpoint 1 — Tableta (≥ 40em / 640 px)
+   ========================================================================== */
+@media (min-width: 40em) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cta-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Breakpoint 2 — Escritorio (≥ 64em / 1024 px)
+   ========================================================================== */
+@media (min-width: 64em) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .split {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+
+  .split--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .contact-grid {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* ---------- Preferencias del usuario ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

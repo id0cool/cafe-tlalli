@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú y servicios | Café Tlalli</title>
+  <meta name="description" content="Consulta el menú de bebidas calientes, frías y panadería de Café Tlalli, además de servicios para eventos y reserva de mesas.">
+  <meta name="theme-color" content="#4a2c1d">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Café Tlalli</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html" aria-current="page">Menú y servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-header">
+      <div class="container">
+        <h1>Menú y servicios</h1>
+        <p>Precios en pesos mexicanos, IVA incluido. Presenta tu credencial UANL vigente y obtén 10&nbsp;% de descuento en bebidas.</p>
+        <nav class="subnav" aria-label="En esta página">
+          <ul>
+            <li><a href="#calientes">Bebidas calientes</a></li>
+            <li><a href="#frias">Bebidas frías</a></li>
+            <li><a href="#panaderia">Panadería</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <section id="calientes" class="section" aria-labelledby="titulo-calientes">
+      <div class="container">
+        <h2 id="titulo-calientes">Bebidas calientes</h2>
+        <p class="section-intro">Preparadas con nuestro tueste de la semana. Leche entera, deslactosada o de avena sin costo extra.</p>
+        <div class="product-grid">
+            <article class="product">
+              <img src="img/espresso.svg" width="400" height="300" alt="Ilustración de una taza pequeña de espresso sobre su plato.">
+              <div class="product-body">
+                <h3>Espresso</h3>
+                <p>Doble carga de café de Coatepec, cuerpo intenso y notas de chocolate.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$38 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/capuchino.svg" width="400" height="300" alt="Ilustración de un capuchino visto desde arriba con un corazón dibujado en la espuma.">
+              <div class="product-body">
+                <span class="tag">Favorito</span>
+                <h3>Capuchino</h3>
+                <p>Espresso con leche vaporizada y una capa suave de espuma.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$52 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/olla.svg" width="400" height="300" alt="Ilustración de una olla de barro con una rama de canela.">
+              <div class="product-body">
+                <h3>Café de olla</h3>
+                <p>Receta tradicional con piloncillo y canela, servido en jarrito de barro.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$45 MXN</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="frias" class="section section--crema" aria-labelledby="titulo-frias">
+      <div class="container">
+        <h2 id="titulo-frias">Bebidas frías</h2>
+        <p class="section-intro">Para las tardes calurosas de Monterrey.</p>
+        <div class="product-grid">
+            <article class="product">
+              <img src="img/coldbrew.svg" width="400" height="300" alt="Ilustración de un vaso alto de café oscuro con cubos de hielo.">
+              <div class="product-body">
+                <h3>Cold brew</h3>
+                <p>Café extraído en frío durante 18 horas; suave y con poca acidez.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$55 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/frappe.svg" width="400" height="300" alt="Ilustración de un frappé con crema batida y un popote.">
+              <div class="product-body">
+                <h3>Frappé de cajeta</h3>
+                <p>Café, hielo, leche y cajeta de Celaya, con crema batida.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$65 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/jamaica.svg" width="400" height="300" alt="Ilustración de un vaso de agua de jamaica color rojo con hielo y una rodaja de limón.">
+              <div class="product-body">
+                <span class="tag">Sin cafeína</span>
+                <h3>Agua de jamaica</h3>
+                <p>Preparada en casa con flor de jamaica y poca azúcar. Litro o medio litro.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$30 MXN</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="panaderia" class="section" aria-labelledby="titulo-panaderia">
+      <div class="container">
+        <h2 id="titulo-panaderia">Panadería</h2>
+        <p class="section-intro">Horneamos cada mañana; cuando se acaba, se acaba.</p>
+        <div class="product-grid">
+            <article class="product">
+              <img src="img/concha.svg" width="400" height="300" alt="Ilustración de una concha, pan dulce mexicano con cubierta en forma de caracol.">
+              <div class="product-body">
+                <h3>Concha</h3>
+                <p>Pan dulce clásico con cubierta de vainilla o chocolate.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$22 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/croissant.svg" width="400" height="300" alt="Ilustración de un cuernito dorado de mantequilla.">
+              <div class="product-body">
+                <h3>Cuernito de mantequilla</h3>
+                <p>Hojaldrado con mantequilla; solo o relleno de jamón y queso.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$35 MXN</p>
+              </div>
+            </article>
+            <article class="product">
+              <img src="img/galleta.svg" width="400" height="300" alt="Ilustración de una galleta redonda con chispas de chocolate.">
+              <div class="product-body">
+                <span class="tag">Vegana</span>
+                <h3>Galleta de avena</h3>
+                <p>Avena, nuez y chispas de chocolate amargo.</p>
+                <p class="price"><span class="visually-hidden">Precio: </span>$25 MXN</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section section--crema" aria-labelledby="titulo-servicios">
+      <div class="container">
+        <h2 id="titulo-servicios">Servicios</h2>
+        <p class="section-intro">Además del local, apoyamos a la comunidad universitaria con estos servicios.</p>
+        <ul class="card-grid">
+          <li>
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M8 18h28v6a14 14 0 0 1-28 0Zm28 2h2a6 6 0 0 1 0 12h-3l.8-4H38a2 2 0 0 0 0-4h-2ZM6 40h32v4H6z"/>
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15 5c3 3-2 5 1 9M22 5c3 3-2 5 1 9M29 5c3 3-2 5 1 9"/>
+              </svg>
+              <h3>Café para eventos</h3>
+              <p>Estación de café y pan para congresos, juntas de academia y exposiciones. Desde 20 personas; cotiza con 3 días de anticipación.</p>
+              <p><a href="contacto.html">Solicitar cotización</a></p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M6 10h36v22H6Zm4 4v14h28V14ZM2 36h44v4H2z"/>
+              </svg>
+              <h3>Reserva de mesa de estudio</h3>
+              <p>Aparta una mesa para tu equipo (hasta 6 personas) por bloques de 2 horas, con pizarrón portátil incluido.</p>
+              <p><a href="contacto.html">Reservar mesa</a></p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M10 8h28l-2 6H12Zm2 8h24l-3 26H15Zm6 6v14h4V22Zm8 0v14h4V22Z"/>
+              </svg>
+              <h3>Pedidos para llevar</h3>
+              <p>Pide por teléfono o correo y recoge en barra en 10 minutos. Trae tu termo y te descontamos 5 pesos.</p>
+              <p><a href="contacto.html">Ver datos de contacto</a></p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <section aria-labelledby="footer-marca">
+          <h2 id="footer-marca" class="footer-title">Café Tlalli</h2>
+          <p>Café de especialidad y pan artesanal a unos pasos de Ciudad Universitaria. Tlalli significa «tierra» en náhuatl.</p>
+        </section>
+        <nav aria-label="Pie de página">
+          <h2 class="footer-title">Secciones</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú y servicios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="footer-horario">
+          <h2 id="footer-horario" class="footer-title">Horario</h2>
+          <p>Lunes a viernes: 7:00 a 21:00<br>Sábado: 8:00 a 15:00<br>Domingo: cerrado</p>
+        </section>
+      </div>
+      <p class="credits">
+        © 2026 Café Tlalli — Negocio ficticio creado como proyecto académico para el Laboratorio de Programación Web, FIME-UANL.
+        Elaborado por Angel Bernardo Rodríguez Parlanch (1951732).
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
